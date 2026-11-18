@@ -128,6 +128,11 @@
       if (n !== s) el.src = n;
     }
   }, true);
+  // 「会いに行く」の行き先：英語のページでは「会いに行くURL_en」があればそちらを使う
+  function visitUrl(p) {
+    var en = (p.raw['会いに行くURL_en'] || '').trim();
+    return (lang === 'en' && /^https?:\/\//.test(en)) ? en : p.visit;
+  }
   function personUrl(p) { return 'person.html?id=' + encodeURIComponent(p.id); }
   function sub(p) { return f(p, '技') + (f(p, '最寄り') ? (lang === 'en' ? ' · ' : '・') + f(p, '最寄り') : ''); }
 
@@ -170,7 +175,7 @@
           '<span class="hitokoto">' + esc(f(p, 'ひとこと')) + '</span>' +
         '</a>' +
         '<div class="acts">' +
-          (p.visit ? '<a class="pill-main" href="' + esc(p.visit) + '" target="_blank" rel="noopener">' + esc(t('visit')) + '</a>' : '') +
+          (visitUrl(p) ? '<a class="pill-main" href="' + esc(visitUrl(p)) + '" target="_blank" rel="noopener">' + esc(t('visit')) + '</a>' : '') +
           '<a class="textlink" href="' + personUrl(p) + '">' + esc(t('more')) + '</a>' +
         '</div>' +
       '</article>';
@@ -207,7 +212,7 @@
     var mapQ = (p.raw['住所'] || '') || placeName;
     var reviews = p.map || ('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent((placeName + ' ' + (p.raw['住所'] || '')).trim()));
     var label = (p.raw['技の英字ラベル'] || '').toUpperCase();
-    var visitBtn = p.visit ? '<a class="pill-main block" href="' + esc(p.visit) + '" target="_blank" rel="noopener">' + esc(t('visit')) + '</a>' : '';
+    var visitBtn = visitUrl(p) ? '<a class="pill-main block" href="' + esc(visitUrl(p)) + '" target="_blank" rel="noopener">' + esc(t('visit')) + '</a>' : '';
     var others = people.filter(function (x) { return x !== p; });
 
     main.innerHTML =

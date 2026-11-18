@@ -5,9 +5,9 @@ window.WZ_CONFIG = {
   sheetCsvUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRPQGRm04YsspVg3i-wjANkt0T_o95XnbDwORuMmxOo6-NgUDVBoO8-PaDOdK9aW2qhvKqC1r1fr4Zo/pub?gid=348630741&single=true&output=csv',
 
   // リンク先
-  torimichUrl: 'https://www.torimich.com/torimich',
-  gururiUrl: 'https://peoplexpeoplecreateenjoy1-star.github.io/gururi/',
-  instagramUrl: 'https://www.instagram.com/torimich73',
-  facebookUrl: 'https://www.facebook.com/share/1Cfg2q1LnQ/?mibextid=wwXIfr',
-  youtubeUrl: 'https://youtube.com/@torimich'
+  torimichUrl: 'https://ykt5da.s.gy/explore-torimich',
+  gururiUrl: 'https://ykt5da.s.gy/gururi-explore',
+  instagramUrl: 'https://ykt5da.s.gy/explore-tori-ig',
+  facebookUrl: 'https://ykt5da.s.gy/facebook-torimich',
+  youtubeUrl: 'https://ykt5da.s.gy/tori-yt'
 };
